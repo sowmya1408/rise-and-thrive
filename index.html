@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rise & Thrive | Selective Mentorship Community in the Nordics</title>
+  <meta name="description" content="Rise & Thrive is an application-only mentorship community across the Nordics. Established entrepreneurs, CEOs, and financial leaders guide ambitious professionals toward career, financial, wellness, and personal growth." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.9/dist/lenis.min.js"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#07090e',
+            brandCard: 'rgba(18, 24, 38, 0.7)',
+            gold: {
+              400: '#f3e5ab',
+              500: '#d4af37',
+              600: '#b89628',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#07090e] text-slate-100 antialiased overflow-x-hidden selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- Ambient Hero Radial Background Glows -->
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <!-- NAVIGATION HEADER -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-nav-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="h-10 px-2 py-1 rounded-xl bg-slate-900 border border-amber-500/20 shadow-lg shadow-amber-500/10 group-hover:border-amber-500/50 transition-all duration-300 flex items-center">
+          <img src="For_Rise&amp;ThriveLogo.jpeg" alt="Rise &amp; Thrive Logo" class="h-full object-contain rounded" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-lg tracking-tight text-white group-hover:text-amber-400 transition-colors">RISE &amp; THRIVE</span>
+          <span class="text-[10px] tracking-widest text-slate-400 uppercase font-mono" data-i18n="nordic_leadership">Nordic Leadership</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#why-us" class="nav-link" data-i18n="nav_why_us">Why Us</a>
+        <a href="#growth-areas" class="nav-link" data-i18n="nav_growth_areas">Areas of Growth</a>
+        <a href="#what-you-get" class="nav-link" data-i18n="nav_what_you_get">What You Get</a>
+        <a href="#community" class="nav-link" data-i18n="nav_community">Community</a>
+        <a href="#who-this-is-for" class="nav-link" data-i18n="nav_who_this_is_for">Who This Is For</a>
+        <a href="#how-to-apply" class="nav-link" data-i18n="nav_process">Process</a>
+      </nav>
+
+      <!-- Desktop CTA & Theme & Language Switcher -->
+      <div class="hidden md:flex items-center gap-3">
+        
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn p-2 rounded-full border border-slate-700/60 bg-slate-900/60 hover:bg-slate-800 text-amber-400 hover:text-amber-300 transition-all shadow-sm focus:outline-none" aria-label="Toggle Light/Dark Theme" title="Toggle Light/Dark Theme">
+          <i data-lucide="sun" class="theme-icon-sun w-4 h-4 hidden"></i>
+          <i data-lucide="moon" class="theme-icon-moon w-4 h-4"></i>
+        </button>
+
+        <!-- 5 Country Flags Language Dropdown -->
+        <div class="relative inline-block text-left" id="lang-dropdown-wrapper">
+          <button id="lang-dropdown-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-700/60 bg-slate-900/60 hover:bg-slate-800 text-xs font-medium text-slate-200 transition-all focus:outline-none" aria-expanded="false" aria-label="Select Language">
+            <span class="current-flag-icon flex items-center">
+              <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm inline-block" viewBox="0 0 60 30"><clipPath id="uk-nav"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#uk-nav)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
+            </span>
+            <span class="current-lang-code font-mono uppercase tracking-wider font-semibold">EN</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
+          </button>
+
+          <!-- Dropdown Options -->
+          <div id="lang-menu" class="lang-dropdown-menu hidden absolute right-0 mt-2 w-44 rounded-2xl bg-[#0e1422] border border-slate-800 shadow-2xl p-1.5 z-50">
+            <!-- 1. English (UK) -->
+            <button data-lang="en" class="lang-option w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-slate-800/80 rounded-xl transition-colors">
+              <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 60 30"><clipPath id="uk-opt"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#uk-opt)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
+              <span>English</span>
+            </button>
+            <!-- 2. Danish (DK) -->
+            <button data-lang="da" class="lang-option w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-slate-800/80 rounded-xl transition-colors">
+              <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 37 28"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#FFF"/><rect y="12" width="37" height="4" fill="#FFF"/></svg>
+              <span>Dansk</span>
+            </button>
+            <!-- 3. Swedish (SE) -->
+            <button data-lang="sv" class="lang-option w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-slate-800/80 rounded-xl transition-colors">
+              <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 16 10"><rect width="16" height="10" fill="#006AA7"/><rect x="5" width="2" height="10" fill="#FECC00"/><rect y="4" width="16" height="2" fill="#FECC00"/></svg>
+              <span>Svenska</span>
+            </button>
+            <!-- 4. Norwegian (NO) -->
+            <button data-lang="no" class="lang-option w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-slate-800/80 rounded-xl transition-colors">
+              <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 22 16"><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#FFF"/><rect y="6" width="22" height="4" fill="#FFF"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg>
+              <span>Norsk</span>
+            </button>
+            <!-- 5. Finnish (FI) -->
+            <button data-lang="fi" class="lang-option w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-slate-800/80 rounded-xl transition-colors">
+              <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 18 11"><rect width="18" height="11" fill="#FFF"/><rect x="5" width="3" height="11" fill="#002F6C"/><rect y="4" width="18" height="3" fill="#002F6C"/></svg>
+              <span>Suomi</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="#get-guidance" class="btn-gold text-xs px-5 py-2.5 uppercase tracking-wider font-semibold" data-i18n="nav_apply_access">
+          Apply for Access
+        </a>
+      </div>
+
+      <!-- Mobile Controls & Hamburger Button -->
+      <div class="flex md:hidden items-center gap-2">
+        <button class="theme-toggle-btn p-2 rounded-full border border-slate-700/60 bg-slate-900/60 text-amber-400" aria-label="Toggle Theme">
+          <i data-lucide="sun" class="theme-icon-sun w-4 h-4 hidden"></i>
+          <i data-lucide="moon" class="theme-icon-moon w-4 h-4"></i>
+        </button>
+        <button id="menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2" aria-label="Open Navigation Menu">
+          <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="menu-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="mobile-menu" class="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-[#0b0f19] border-l border-slate-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-8 flex flex-col justify-between overflow-y-auto">
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <span class="font-heading font-bold text-lg text-gradient-gold">RISE &amp; THRIVE</span>
+        <button id="close-menu-btn" class="text-slate-400 hover:text-white p-2" aria-label="Close Navigation Menu">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Language Flag Selector Grid -->
+      <div class="mb-8 p-3 rounded-2xl bg-slate-900/80 border border-slate-800">
+        <p class="text-[11px] uppercase tracking-wider font-mono text-slate-400 mb-3 font-semibold">Select Country / Language</p>
+        <div class="grid grid-cols-5 gap-2">
+          <button data-lang="en" class="lang-option p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 flex flex-col items-center gap-1 transition-all" title="English">
+            <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 60 30"><clipPath id="uk-mob"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(#uk-mob)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
+            <span class="text-[9px] font-mono uppercase font-bold text-slate-300">EN</span>
+          </button>
+          <button data-lang="da" class="lang-option p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 flex flex-col items-center gap-1 transition-all" title="Dansk">
+            <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 37 28"><rect width="37" height="28" fill="#C8102E"/><rect x="12" width="4" height="28" fill="#FFF"/><rect y="12" width="37" height="4" fill="#FFF"/></svg>
+            <span class="text-[9px] font-mono uppercase font-bold text-slate-300">DA</span>
+          </button>
+          <button data-lang="sv" class="lang-option p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 flex flex-col items-center gap-1 transition-all" title="Svenska">
+            <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 16 10"><rect width="16" height="10" fill="#006AA7"/><rect x="5" width="2" height="10" fill="#FECC00"/><rect y="4" width="16" height="2" fill="#FECC00"/></svg>
+            <span class="text-[9px] font-mono uppercase font-bold text-slate-300">SV</span>
+          </button>
+          <button data-lang="no" class="lang-option p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 flex flex-col items-center gap-1 transition-all" title="Norsk">
+            <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 22 16"><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#FFF"/><rect y="6" width="22" height="4" fill="#FFF"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg>
+            <span class="text-[9px] font-mono uppercase font-bold text-slate-300">NO</span>
+          </button>
+          <button data-lang="fi" class="lang-option p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700 flex flex-col items-center gap-1 transition-all" title="Suomi">
+            <svg class="w-5 h-3.5 rounded-sm object-cover shadow-sm" viewBox="0 0 18 11"><rect width="18" height="11" fill="#FFF"/><rect x="5" width="3" height="11" fill="#002F6C"/><rect y="4" width="18" height="3" fill="#002F6C"/></svg>
+            <span class="text-[9px] font-mono uppercase font-bold text-slate-300">FI</span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="flex flex-col gap-6 text-base font-medium">
+        <a href="#why-us" class="text-slate-300 hover:text-amber-400 transition-colors" data-i18n="nav_why_us">Why Us</a>
+        <a href="#growth-areas" class="text-slate-300 hover:text-amber-400 transition-colors" data-i18n="nav_growth_areas">Areas of Growth</a>
+        <a href="#what-you-get" class="text-slate-300 hover:text-amber-400 transition-colors" data-i18n="nav_what_you_get">What You Get</a>
+        <a href="#community" class="text-slate-300 hover:text-amber-400 transition-colors" data-i18n="nav_community">Community</a>
+        <a href="#who-this-is-for" class="text-slate-300 hover:text-amber-400 transition-colors" data-i18n="nav_who_this_is_for">Who This Is For</a>
+        <a href="#how-to-apply" class="text-slate-300 hover:text-amber-400 transition-colors" data-i18n="nav_process">Application Process</a>
+      </nav>
+    </div>
+
+    <div class="pt-8 border-t border-slate-800/80">
+      <a href="#get-guidance" class="btn-gold w-full text-center py-3.5 text-xs uppercase tracking-wider font-bold" data-i18n="nav_apply_access">
+        Apply for Access
+      </a>
+      <p class="text-xs text-slate-500 text-center mt-4" data-i18n="hero_badge">Selective Mentorship • Nordics</p>
+    </div>
+  </aside>
+
+  <!-- 1. HERO SECTION -->
+  <section id="hero" class="relative pt-36 lg:pt-48 pb-24 lg:pb-36 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12 text-center relative z-10">
+      
+      <!-- Application Only Badge -->
+      <div id="hero-badge" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full badge-gold text-xs font-semibold mb-8 reveal-init transform translate-y-6">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span data-i18n="hero_badge">By Application Only</span>
+      </div>
+
+      <!-- Hero Headline -->
+      <h1 id="hero-headline" class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-8 reveal-init transform translate-y-6">
+        <span data-i18n="hero_headline_1">Where Nordic Leaders &amp; Ambitious Minds</span> <span class="text-gradient-gold" data-i18n="hero_headline_2">Converge to Thrive</span>
+      </h1>
+
+      <!-- Hero Subheadline -->
+      <p id="hero-subheadline" class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 leading-relaxed font-normal mb-10 reveal-init transform translate-y-6" data-i18n="hero_subheadline">
+        A selective mentorship community where established Nordics entrepreneurs, CEOs, and finance experts coach high-potential professionals and students toward personal, professional, and financial excellence.
+      </p>
+
+      <!-- Hero Action CTAs -->
+      <div id="hero-ctas" class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal-init transform translate-y-6">
+        <a href="#get-guidance" class="btn-gold px-8 py-4 text-sm uppercase tracking-wider font-bold w-full sm:w-auto">
+          <span data-i18n="hero_cta_apply">Apply for Access</span> <i data-lucide="arrow-right" class="w-4 h-4 ml-2 inline"></i>
+        </a>
+        <a href="#why-us" class="btn-outline px-8 py-4 text-sm uppercase tracking-wider font-semibold w-full sm:w-auto" data-i18n="hero_cta_explore">
+          Explore Mentorship
+        </a>
+      </div>
+
+      <!-- Trust Bar Element -->
+      <div class="mt-20 pt-10 border-t border-slate-800/60 max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-6 text-slate-400 text-xs font-medium uppercase tracking-widest">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i> <span data-i18n="trust_vetted_mentors">Vetted Mentors</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="compass" class="w-4 h-4 text-amber-400"></i> <span data-i18n="trust_pan_nordic">Pan-Nordic Network</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i> <span data-i18n="trust_holistic">Holistic Growth</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="user-check" class="w-4 h-4 text-amber-400"></i> <span data-i18n="trust_direction">1:1 Guided Direction</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. WHY RISE & THRIVE -->
+  <section id="why-us" class="py-24 border-t border-slate-800/40 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <h2 class="text-xs uppercase tracking-widest font-semibold text-amber-400 mb-3" data-i18n="why_badge">Curated Excellence</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight" data-i18n="why_title">Why High Performers Choose Rise &amp; Thrive</p>
+        <p class="text-slate-400 mt-4 text-base" data-i18n="why_subtitle">Generic advice doesn't cut it when you are operating at a senior level. We connect you with verified industry titans who have walked the path.</p>
+      </div>
+
+      <!-- 3 Value Props Card Grid -->
+      <div class="grid md:grid-cols-3 gap-8 gsap-reveal-grid">
+        
+        <!-- Card 1 -->
+        <div class="glass-card p-8 rounded-2xl flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors" data-i18n="why_card1_title">Tailored 1-on-1 Mentorship</h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n="why_card1_desc">
+              Handpicked mentorship pairing based on your exact sector, leadership challenges, and 5-year growth trajectory.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/60 flex items-center text-xs text-amber-400 font-semibold tracking-wider uppercase">
+            <span data-i18n="why_card1_tag">Proven Track Record</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card p-8 rounded-2xl flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors" data-i18n="why_card2_title">Holistic Growth Beyond Career</h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n="why_card2_desc">
+              True achievement requires equilibrium. We emphasize financial acumen, mental resilience, personal wellbeing, and high-impact communication alongside executive ascension.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/60 flex items-center text-xs text-amber-400 font-semibold tracking-wider uppercase">
+            <span data-i18n="why_card2_tag">Balanced Development</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card p-8 rounded-2xl flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors" data-i18n="why_card3_title">Growing &amp; Elevating Together</h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n="why_card3_desc">
+              An ecosystem built on high standards and trust. Associates actively support each other, share intelligence, open doors, and build lifelong professional partnerships.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-800/60 flex items-center text-xs text-amber-400 font-semibold tracking-wider uppercase">
+            <span data-i18n="why_card3_tag">Collective Momentum</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. AREAS OF GROWTH (Heart of Page - Tinted Section) -->
+  <section id="growth-areas" class="py-28 bg-section-tint border-y border-amber-500/10 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="px-3.5 py-1 rounded-full badge-gold text-[11px] font-semibold tracking-widest uppercase" data-i18n="growth_badge">The Four Pillars</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-4" data-i18n="growth_title">Areas of Growth</h2>
+        <p class="text-slate-300 text-base mt-4 italic font-serif max-w-2xl mx-auto" data-i18n="growth_subtitle">
+          "Access to mentorship of this caliber isn't easy to come by. It's reserved exclusively for those selected into Rise &amp; Thrive — and earned, not simply given."
+        </p>
+      </div>
+
+      <!-- 2x2 Prominent Card Grid -->
+      <div class="grid md:grid-cols-2 gap-8 gsap-reveal-grid">
+        
+        <!-- Pillar 1: Personal & Professional Development -->
+        <div class="glass-card-featured p-8 sm:p-10 rounded-3xl relative overflow-hidden group">
+          <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform">
+              <i data-lucide="trending-up" class="w-7 h-7"></i>
+            </div>
+            <span class="text-xs font-mono text-amber-400/80 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Pillar I</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3" data-i18n="pillar1_title">Personal &amp; Professional Development</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="pillar1_desc">
+            Direct 1:1 guidance from industry leaders on career progression, personal branding, social media influencing, and LinkedIn strategies to elevate your authority and market presence.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i> <span data-i18n="pillar1_item1">Executive Career Roadmapping</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i> <span data-i18n="pillar1_item2">Personal Branding &amp; LinkedIn Strategies</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i> <span data-i18n="pillar1_item3">Social Media Influencing for Career Growth</span></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Wellness & Wellbeing -->
+        <div class="glass-card-featured p-8 sm:p-10 rounded-3xl relative overflow-hidden group">
+          <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+              <i data-lucide="activity" class="w-7 h-7"></i>
+            </div>
+            <span class="text-xs font-mono text-emerald-400/80 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Pillar II</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3" data-i18n="pillar2_title">Wellness &amp; Wellbeing</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="pillar2_desc">
+            Holistic frameworks for mental toughness, stress management, and physical health. Ensure high performance is sustainable over decades without burnout.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="pillar2_item1">High-Stress Optimization</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="pillar2_item2">Mental Resilience Practices</span></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Financial Literacy & Budgeting -->
+        <div class="glass-card-featured p-8 sm:p-10 rounded-3xl relative overflow-hidden group">
+          <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl group-hover:bg-sky-500/20 transition-all"></div>
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:scale-105 transition-transform">
+              <i data-lucide="line-chart" class="w-7 h-7"></i>
+            </div>
+            <span class="text-xs font-mono text-sky-400/80 bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">Pillar III</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3" data-i18n="pillar3_title">Financial Literacy &amp; Budgeting</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="pillar3_desc">
+            Master money management, wealth building, and strategic capital allocation with guidance from institutional finance professionals and investment experts.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400"></i> <span data-i18n="pillar3_item1">Personal Capital Structuring</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-sky-400"></i> <span data-i18n="pillar3_item2">Wealth Strategy &amp; Discipline</span></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4: Essential Life Skills -->
+        <div class="glass-card-featured p-8 sm:p-10 rounded-3xl relative overflow-hidden group">
+          <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform">
+              <i data-lucide="mic" class="w-7 h-7"></i>
+            </div>
+            <span class="text-xs font-mono text-purple-400/80 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Pillar IV</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3" data-i18n="pillar4_title">Essential Life Skills</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="pillar4_desc">
+            Develop commanding public speaking, boardroom presentation mastery, interpersonal presence, and emotional intelligence necessary to lead effectively.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400"></i> <span data-i18n="pillar4_item1">Executive Public Speaking</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-purple-400"></i> <span data-i18n="pillar4_item2">Behavioral Intelligence</span></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 5: Entrepreneurship -->
+        <div class="glass-card-featured p-8 sm:p-10 rounded-3xl relative overflow-hidden group md:col-span-2 lg:col-span-1">
+          <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-rose-500/10 rounded-full blur-2xl group-hover:bg-rose-500/20 transition-all"></div>
+          <div class="flex items-start justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 group-hover:scale-105 transition-transform">
+              <i data-lucide="rocket" class="w-7 h-7"></i>
+            </div>
+            <span class="text-xs font-mono text-rose-400/80 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20">Pillar V</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3" data-i18n="pillar5_title">Entrepreneurship</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6" data-i18n="pillar5_desc">
+            Learn entrepreneurship directly from successful entrepreneurs and business owners with decades of global experience. Master practical business development strategies, gain hands-on venture experience, and build multiple streams of income.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-400"></i> <span data-i18n="pillar5_item1">Practical Business Development</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-400"></i> <span data-i18n="pillar5_item2">Multiple Streams of Income</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. WHAT YOU GET -->
+  <section id="what-you-get" class="py-24 border-b border-slate-800/40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <h2 class="text-xs uppercase tracking-widest font-semibold text-amber-400 mb-3" data-i18n="get_badge">Community Access</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight" data-i18n="get_title">What You Experience</p>
+        <p class="text-slate-400 mt-4 text-base" data-i18n="get_subtitle">A structured, high-touch environment designed to accelerate your growth trajectory.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 gsap-reveal-grid">
+        
+        <div class="glass-card p-8 rounded-2xl border-t-2 border-t-amber-400/40">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <i data-lucide="calendar" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" data-i18n="get_card1_title">Events &amp; Masterclass Workshops</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="get_card1_desc">
+            Exclusive access to interactive masterclasses, strategy roundtables, and high-level growth summits led by prominent Nordics leaders.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl border-t-2 border-t-amber-400/40">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <i data-lucide="network" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" data-i18n="get_card2_title">High-Caliber Peer Community</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="get_card2_desc">
+            Surround yourself with vetted peers across Sweden, Denmark, Norway, and Finland who share your drive, integrity, and relentless focus on excellence.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl border-t-2 border-t-amber-400/40">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6">
+            <i data-lucide="user-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" data-i18n="get_card3_title">Direct 1:1 Professional Guidance</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="get_card3_desc">
+            Direct personal alignment with an accomplished professional to address your specific goals across any of the four growth pillars.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. COMMUNITY IN ACTION (Image Gallery Grid) -->
+  <section id="community" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <h2 class="text-xs uppercase tracking-widest font-semibold text-amber-400 mb-3" data-i18n="community_badge">Behind the Scenes</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight" data-i18n="community_title">Community in Action</p>
+        <p class="text-slate-400 mt-4 text-base" data-i18n="community_subtitle">A glimpse into our private summits, leadership workshops, and strategy sessions.</p>
+      </div>
+
+      <!-- Perfectly Balanced 6-Photo Gallery Grid (3x2 Desktop, 2x3 Tablet, 1x6 Mobile) -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 gsap-reveal-grid">
+        
+        <!-- 1. Outdoor Yoga in Copenhagen Denmark (Natural Aspect, Uncropped, Perfect Grid Fit) -->
+        <div class="group relative rounded-2xl overflow-hidden glass-card aspect-[4/3] flex items-center justify-center bg-[#0d111a] p-2">
+          <img src="Outdoor Yoga for Wellness and Wellbeing.jpeg" alt="Outdoor Yoga for Wellness and Wellbeing in Copenhagen Denmark" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 rounded-xl" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity pointer-events-none"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-xs font-semibold text-white tracking-wide" data-i18n="gallery_item1">
+            Outdoor Yoga for Wellness &amp; Wellbeing • Copenhagen, Denmark
+          </div>
+        </div>
+
+        <!-- 2. Community Gathering -> Melbourne Australia -->
+        <div class="group relative rounded-2xl overflow-hidden glass-card aspect-[4/3]">
+          <img src="Community Gathering.jpeg" alt="Community Gathering in Melbourne Australia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-xs font-semibold text-white tracking-wide" data-i18n="gallery_item2">
+            Executive Leadership Roundtable &amp; Community Gathering • Melbourne, Australia
+          </div>
+        </div>
+
+        <!-- 3. Leadership Summit -> Australia -->
+        <div class="group relative rounded-2xl overflow-hidden glass-card aspect-[4/3]">
+          <img src="Leadership Summit.jpg" alt="Leadership Summit in Australia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-xs font-semibold text-white tracking-wide" data-i18n="gallery_item3">
+            Leadership &amp; Growth Summit • Australia
+          </div>
+        </div>
+
+        <!-- 4. Wellness Program at Operahouse Oslo Norway -->
+        <div class="group relative rounded-2xl overflow-hidden glass-card aspect-[4/3]">
+          <img src="Wellness Program at Operahouse Oslo Norway.jpeg" alt="Wellness Program at Operahouse Oslo Norway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-xs font-semibold text-white tracking-wide" data-i18n="gallery_item4">
+            Wellness Program at Operahouse • Oslo, Norway
+          </div>
+        </div>
+
+        <!-- 5. Global Entrepreneurship Conference -> Melbourne Australia -->
+        <div class="group relative rounded-2xl overflow-hidden glass-card aspect-[4/3]">
+          <img src="Global Entreprenership Conference.jpeg" alt="Global Entrepreneurship Conference in Melbourne Australia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-xs font-semibold text-white tracking-wide" data-i18n="gallery_item5">
+            Global Entrepreneurship &amp; Innovation Conference • Melbourne, Australia
+          </div>
+        </div>
+
+        <!-- 6. Virtual Meetups with Industry Leaders -->
+        <div class="group relative rounded-2xl overflow-hidden glass-card aspect-[4/3]">
+          <img src="Virtual meetups with Industry Leaders.jpg" alt="Virtual meetups with Industry Leaders" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-xs font-semibold text-white tracking-wide" data-i18n="gallery_item6">
+            Virtual Interactive Masterclasses with Industry Leaders
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. TESTIMONIALS -->
+  <section id="testimonials" class="py-24 border-t border-slate-800/40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <h2 class="text-xs uppercase tracking-widest font-semibold text-amber-400 mb-3" data-i18n="testi_badge">Perspectives</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight" data-i18n="testi_title">Voices of Our Associates</p>
+        <p class="text-slate-400 mt-4 text-base" data-i18n="testi_subtitle">Hear how direct leader mentorship transformed their professional and personal trajectory.</p>
+    </div>
+
+    <!-- Infinite Continuous Rotating Testimonials Ticker -->
+    <div class="relative w-full overflow-hidden py-4">
+      <!-- Gradient Fades for Left and Right Edges -->
+      <div class="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#07090e] to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#07090e] to-transparent z-10 pointer-events-none"></div>
+
+      <div class="animate-marquee flex gap-6 px-4">
+        
+        <!-- Track 1: First 15 Testimonials -->
+        <!-- 1. Debina -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Transitioning from odd jobs to a corporate career felt insurmountable until I joined Rise &amp; Thrive. Leveraging the guidance and executive network within this association unlocked my full potential and landed me a corporate role."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Debina.jpeg" alt="Debina photo" class="w-11 h-11 rounded-full object-cover border-2 border-amber-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Debina</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Sowmya -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Through the structured mentorship program, I unlocked high-impact growth opportunities that significantly accelerated my career progression and sharpened my strategic focus."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Sowmya.jpeg" alt="Sowmya photo" class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Sowmya</h4>
+              <p class="text-xs text-slate-400">Business Administrator • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Chintan -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Direct mentorship from seasoned industry leaders transformed my executive presence, public speaking confidence, and strategic leadership skills beyond expectations."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Chintan.jpeg" alt="Chintan photo" class="w-11 h-11 rounded-full object-cover border-2 border-sky-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Chintan</h4>
+              <p class="text-xs text-slate-400">IT Professional • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Ashish -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Securing a permanent role in the Nordics was made possible through direct executive references and the strong endorsement of this professional community."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Ashish.jpeg" alt="Ashish photo" class="w-11 h-11 rounded-full object-cover border-2 border-amber-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Ashish</h4>
+              <p class="text-xs text-slate-400">Operations Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Simaranpreet -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Receiving right career advice through this mentorship arena has immensely guided my education choices and decision making as I build a solid foundation for my future career."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Simaranpreet.jpeg" alt="Simaranpreet photo" class="w-11 h-11 rounded-full object-cover border-2 border-teal-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Simaranpreet</h4>
+              <p class="text-xs text-slate-400">Student • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Khushii -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "The focus on interpersonal communication and holistic life skills enabled me to build meaningful professional relationships and navigate complex scenarios with ease."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Khushii.jpeg" alt="Khushii photo" class="w-11 h-11 rounded-full object-cover border-2 border-purple-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Khushii</h4>
+              <p class="text-xs text-slate-400">Healthcare Professional • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Jitali -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Leveraging the strong, trust-based professional network of Rise &amp; Thrive directly opened doors to securing a permanent role aligned with my career ambitions."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Jitali.jpeg" alt="Jitali photo" class="w-11 h-11 rounded-full object-cover border-2 border-rose-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Jitali</h4>
+              <p class="text-xs text-slate-400">Healthcare Professional • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Ishan -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Being part of this community provided direct access and insights into high-potential entrepreneurial ventures across the competitive Nordic market."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Ishan.jpeg" alt="Ishan photo" class="w-11 h-11 rounded-full object-cover border-2 border-indigo-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Ishan</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Chandra -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "By leveraging the elite professional association and mentorship ecosystem, I successfully upgraded my career trajectory and leadership capabilities."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Chandra.jpeg" alt="Chandra photo" class="w-11 h-11 rounded-full object-cover border-2 border-amber-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Chandra</h4>
+              <p class="text-xs text-slate-400">Retail Management Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Rahul -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Rise &amp; Thrive provided the exact direction and framework I needed to balance high professional ambition with long-term physical wellness and mental wellbeing."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Rahul.jpeg" alt="Rahul photo" class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Rahul</h4>
+              <p class="text-xs text-slate-400">Logistics Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Axel -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "The opportunity to work on real-world industry projects gave me hands-on execution experience that dramatically accelerated my professional development."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Axel.jpeg" alt="Axel photo" class="w-11 h-11 rounded-full object-cover border-2 border-sky-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Axel</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Patrick -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "The holistic wellness focus and community support helped me overcome chronic health challenges, revitalizing both my personal energy and professional output."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Patrick.jpeg" alt="Patrick photo" class="w-11 h-11 rounded-full object-cover border-2 border-yellow-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Patrick</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Sweden</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Ruwaida -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Upgrading my professional career was seamless with the strategic mentorship and executive backing offered by our Nordic community."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <div class="w-11 h-11 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400 text-sm shrink-0">
+              R
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Ruwaida</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Norway</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Manju -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Building strong interpersonal competencies and real-world life skills allowed me to carve out a distinct professional identity and advance my career."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Manju.jpeg" alt="Manju photo" class="w-11 h-11 rounded-full object-cover border-2 border-teal-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Manju</h4>
+              <p class="text-xs text-slate-400">Sales Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Arjun -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Leveraging our professional association provided me with a clear roadmap, transforming my career growth and opening new avenues of achievement."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Arjun.jpeg" alt="Arjun photo" class="w-11 h-11 rounded-full object-cover border-2 border-blue-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Arjun</h4>
+              <p class="text-xs text-slate-400">Investment Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Bindu -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Learning and applying real-life practical education alongside industry veterans transformed how I approach business strategy and personal growth."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Bindu.jpeg" alt="Bindu photo" class="w-11 h-11 rounded-full object-cover border-2 border-pink-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Bindu</h4>
+              <p class="text-xs text-slate-400">Healthcare Professional • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 2: Exact Duplicate of All 15 Testimonials for Smooth Infinite Loop -->
+        <!-- 1. Debina -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Transitioning from odd jobs to a corporate career felt insurmountable until I joined Rise &amp; Thrive. Leveraging the guidance and executive network within this association unlocked my full potential and landed me a corporate role."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Debina.jpeg" alt="Debina photo" class="w-11 h-11 rounded-full object-cover border-2 border-amber-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Debina</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Sowmya -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Through the structured mentorship program, I unlocked high-impact growth opportunities that significantly accelerated my career progression and sharpened my strategic focus."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Sowmya.jpeg" alt="Sowmya photo" class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Sowmya</h4>
+              <p class="text-xs text-slate-400">Business Administrator • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Chintan -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Direct mentorship from seasoned industry leaders transformed my executive presence, public speaking confidence, and strategic leadership skills beyond expectations."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Chintan.jpeg" alt="Chintan photo" class="w-11 h-11 rounded-full object-cover border-2 border-sky-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Chintan</h4>
+              <p class="text-xs text-slate-400">IT Professional • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Ashish -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between border-t-2 border-t-amber-400/40" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Securing a permanent role in the Nordics was made possible through direct executive references and the strong endorsement of this professional community."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <div class="w-11 h-11 rounded-full bg-amber-500/20 flex items-center justify-center font-bold text-amber-400 text-sm shrink-0">
+              A
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Ashish</h4>
+              <p class="text-xs text-slate-400">Operations Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Khushii -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "The focus on interpersonal communication and holistic life skills enabled me to build meaningful professional relationships and navigate complex scenarios with ease."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Khushii.jpeg" alt="Khushii photo" class="w-11 h-11 rounded-full object-cover border-2 border-purple-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Khushii</h4>
+              <p class="text-xs text-slate-400">Healthcare Professional • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Jitali -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Leveraging the strong, trust-based professional network of Rise &amp; Thrive directly opened doors to securing a permanent role aligned with my career ambitions."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Jitali.jpeg" alt="Jitali photo" class="w-11 h-11 rounded-full object-cover border-2 border-rose-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Jitali</h4>
+              <p class="text-xs text-slate-400">Healthcare Professional • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Ishan -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Being part of this community provided direct access and insights into high-potential entrepreneurial ventures across the competitive Nordic market."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Ishan.jpeg" alt="Ishan photo" class="w-11 h-11 rounded-full object-cover border-2 border-indigo-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Ishan</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Chandra -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "By leveraging the elite professional association and mentorship ecosystem, I successfully upgraded my career trajectory and leadership capabilities."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Chandra.jpeg" alt="Chandra photo" class="w-11 h-11 rounded-full object-cover border-2 border-amber-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Chandra</h4>
+              <p class="text-xs text-slate-400">Retail Management Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Rahul -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Rise &amp; Thrive provided the exact direction and framework I needed to balance high professional ambition with long-term physical wellness and mental wellbeing."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Rahul.jpeg" alt="Rahul photo" class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Rahul</h4>
+              <p class="text-xs text-slate-400">Logistics Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Axel -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "The opportunity to work on real-world industry projects gave me hands-on execution experience that dramatically accelerated my professional development."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Axel.jpeg" alt="Axel photo" class="w-11 h-11 rounded-full object-cover border-2 border-sky-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Axel</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Patrick -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "The holistic wellness focus and community support helped me overcome chronic health challenges, revitalizing both my personal energy and professional output."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Patrick.jpeg" alt="Patrick photo" class="w-11 h-11 rounded-full object-cover border-2 border-yellow-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Patrick</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Sweden</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Ruwaida -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Upgrading my professional career was seamless with the strategic mentorship and executive backing offered by our Nordic community."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <div class="w-11 h-11 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400 text-sm shrink-0">
+              R
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-white">Ruwaida</h4>
+              <p class="text-xs text-slate-400">Entrepreneur • Norway</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Manju -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Building strong interpersonal competencies and real-world life skills allowed me to carve out a distinct professional identity and advance my career."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Manju.jpeg" alt="Manju photo" class="w-11 h-11 rounded-full object-cover border-2 border-teal-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Manju</h4>
+              <p class="text-xs text-slate-400">Sales Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Arjun -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Leveraging our professional association provided me with a clear roadmap, transforming my career growth and opening new avenues of achievement."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Arjun.jpeg" alt="Arjun photo" class="w-11 h-11 rounded-full object-cover border-2 border-blue-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Arjun</h4>
+              <p class="text-xs text-slate-400">Investment Specialist • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Bindu -->
+        <div class="w-[300px] sm:w-[380px] glass-card p-6 sm:p-8 rounded-2xl flex-shrink-0 flex flex-col justify-between" aria-hidden="true">
+          <div>
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed italic mb-6">
+              "Learning and applying real-life practical education alongside industry veterans transformed how I approach business strategy and personal growth."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-800/60">
+            <img src="Bindu.jpeg" alt="Bindu photo" class="w-11 h-11 rounded-full object-cover border-2 border-pink-500/40 shadow-md shrink-0" />
+            <div>
+              <h4 class="text-sm font-bold text-white">Bindu</h4>
+              <p class="text-xs text-slate-400">Healthcare Professional • Denmark</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- 7. WHO THIS IS FOR -->
+  <section id="who-this-is-for" class="py-24 bg-section-tint border-t border-slate-800/60 relative">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+      
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="gsap-reveal">
+          <span class="px-3.5 py-1 rounded-full badge-gold text-[11px] font-semibold tracking-widest uppercase" data-i18n="who_badge">Selective Cohorts</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-4 mb-6" data-i18n="who_title">Who This Is For</h2>
+          <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="who_desc">
+            Rise &amp; Thrive is intentionally limited to high-potential professionals and ambitious students across the Nordics who possess the mindset, humility, and dedication required for high achievement.
+          </p>
+          <p class="text-amber-400/90 text-sm font-medium mb-8 bg-amber-500/10 p-4 rounded-xl border border-amber-500/20">
+            <i data-lucide="info" class="w-4 h-4 inline mr-2"></i> <span data-i18n="who_info">Access is strictly by application and interview selection. We do not offer open enrollment.</span>
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <p class="text-sm text-slate-200"><strong class="text-white" data-i18n="who_point1_title">Hungry &amp; Coachable:</strong> <span data-i18n="who_point1_desc">Eager to learn directly from real leaders and apply constructive feedback without ego.</span></p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <p class="text-sm text-slate-200"><strong class="text-white" data-i18n="who_point2_title">Long-term Vision:</strong> <span data-i18n="who_point2_desc">Dedicated to personal growth across career, wellness, finance, and life skills.</span></p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <p class="text-sm text-slate-200"><strong class="text-white" data-i18n="who_point3_title">Community Minded:</strong> <span data-i18n="who_point3_desc">Committed to supporting peers and contributing positively to the collective network.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Stats Card Container -->
+        <div class="glass-card p-8 sm:p-10 rounded-3xl border border-amber-500/20 space-y-8 gsap-reveal">
+          <h3 class="text-lg font-bold text-white uppercase tracking-wider text-gradient-gold border-b border-slate-800 pb-4" data-i18n="who_stats_title">By The Numbers</h3>
+          
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <div class="text-4xl font-extrabold text-white font-heading stat-counter" data-target="100" data-suffix="%">0%</div>
+              <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider" data-i18n="who_stat1_label">Vetted Mentors</div>
+            </div>
+            <div>
+              <div class="text-4xl font-extrabold text-white font-heading stat-counter" data-target="4" data-suffix=" Pillars">0 Pillars</div>
+              <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider" data-i18n="who_stat2_label">Holistic Focus</div>
+            </div>
+            <div>
+              <div class="text-4xl font-extrabold text-white font-heading stat-counter" data-target="1" data-prefix="1:" data-suffix=" Ratio">1:1 Ratio</div>
+              <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider" data-i18n="who_stat3_label">Personal Guidance</div>
+            </div>
+            <div>
+              <div class="text-4xl font-extrabold text-white font-heading stat-counter" data-target="100" data-suffix="% Nordics">% Nordics</div>
+              <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider" data-i18n="who_stat4_label">Pan-Nordic Network</div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-800 text-xs text-slate-400" data-i18n="who_stats_note">
+            Selection criteria ensures every associate aligns with our core values of integrity, discretion, and excellence.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. HOW TO APPLY -->
+  <section id="how-to-apply" class="py-24 border-t border-slate-800/40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <h2 class="text-xs uppercase tracking-widest font-semibold text-amber-400 mb-3" data-i18n="process_badge">Admission Path</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight" data-i18n="process_title">How to Apply</p>
+        <p class="text-slate-400 mt-4 text-base" data-i18n="process_subtitle">A simple, multi-stage application designed to evaluate mutual fit.</p>
+      </div>
+
+      <!-- 3-Step Horizontal Process -->
+      <div class="grid md:grid-cols-3 gap-8 relative gsap-reveal-grid">
+        
+        <!-- Step 1 -->
+        <div class="glass-card p-8 rounded-2xl relative">
+          <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center mb-6 font-mono text-base border border-amber-500/30">
+            01
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" data-i18n="step1_title">Submit Application</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="step1_desc">
+            Fill out the guidance request form below detailing your background, current focus, and desired growth area.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-card p-8 rounded-2xl relative">
+          <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center mb-6 font-mono text-base border border-amber-500/30">
+            02
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" data-i18n="step2_title">Selection Review</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="step2_desc">
+            Our committee reviews submissions to ensure alignment with our high standards and mentor availability.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-card p-8 rounded-2xl relative">
+          <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center mb-6 font-mono text-base border border-amber-500/30">
+            03
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3" data-i18n="step3_title">Cohort Onboarding</h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-i18n="step3_desc">
+            Selected associates are introduced to their mentor and welcomed into the private community network.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-14 text-center gsap-reveal">
+        <a href="#get-guidance" class="btn-gold px-8 py-4 text-xs uppercase tracking-wider font-bold">
+          <span data-i18n="hero_cta_apply">Apply for Access</span> <i data-lucide="arrow-right" class="w-4 h-4 ml-2 inline"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. GET CAREER GUIDANCE (Contact/Application Form) -->
+  <section id="get-guidance" class="py-24 bg-section-tint border-t border-slate-800/60 relative">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12">
+      
+      <div class="text-center mb-12 gsap-reveal">
+        <span class="px-3.5 py-1 rounded-full badge-gold text-[11px] font-semibold tracking-widest uppercase" data-i18n="form_badge">1:1 Mentorship Inquiry</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-4" data-i18n="form_title">Get Career Guidance</h2>
+        <p class="text-slate-300 text-base mt-4 max-w-2xl mx-auto" data-i18n="form_subtitle">
+          Submit your application details to connect directly with one of our community professionals for personal 1:1 guidance.
+        </p>
+        <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-xs font-semibold">
+          <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
+          <span data-i18n="form_disclaimer">This is not a paid mentorship — it is an earned mentorship through selective merit &amp; commitment.</span>
+        </div>
+      </div>
+
+      <div class="glass-card-featured p-8 sm:p-12 rounded-3xl gsap-reveal">
+        
+        <!-- Form Element -->
+        <form id="guidance-form" class="space-y-6" novalidate>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="form-name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" data-i18n="form_label_name">Full Name *</label>
+              <input type="text" id="form-name" placeholder="e.g. Astrid Lindgren" class="form-input text-sm" required />
+            </div>
+            <div>
+              <label for="form-email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" data-i18n="form_label_email">Email Address *</label>
+              <input type="email" id="form-email" placeholder="astrid@domain.com" class="form-input text-sm" required />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="form-phone" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" data-i18n="form_label_phone">Contact Number (WhatsApp Enabled) *</label>
+              <input type="tel" id="form-phone" placeholder="+45 12 34 56 78" class="form-input text-sm" required />
+            </div>
+            <div>
+              <label for="form-referrer" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" data-i18n="form_label_referrer">Person's name from whom you got to know about this community *</label>
+              <input type="text" id="form-referrer" placeholder="Enter full name of your contact / referrer" class="form-input text-sm" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="form-area" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" data-i18n="form_label_area">Primary Guidance Area *</label>
+            <select id="form-area" class="form-input text-sm text-slate-200" required>
+              <option value="" disabled selected data-i18n="form_label_area_select">Select an Area of Growth...</option>
+              <option value="personal-professional" data-i18n="form_opt_personal">Personal &amp; Professional Development</option>
+              <option value="wellness" data-i18n="form_opt_wellness">Wellness &amp; Wellbeing</option>
+              <option value="financial" data-i18n="form_opt_financial">Financial Literacy &amp; Budgeting</option>
+              <option value="life-skills" data-i18n="form_opt_lifeskills">Essential Life Skills</option>
+              <option value="entrepreneurship" data-i18n="form_opt_entrepreneurship">Entrepreneurship</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="form-message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" data-i18n="form_label_message">Background &amp; Growth Objectives *</label>
+            <textarea id="form-message" rows="4" placeholder="Briefly describe your current role or studies, what you aim to achieve, and why you are seeking mentorship..." class="form-input text-sm" data-i18n-placeholder="form_placeholder_message" required></textarea>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="btn-gold w-full py-4 text-xs uppercase tracking-wider font-bold">
+              <span data-i18n="form_submit_btn">Submit Guidance Application</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </button>
+          </div>
+
+          <p class="text-[11px] text-slate-400 text-center" data-i18n="form_privacy_note">
+            Strictly confidential. Submissions are reviewed exclusively by the Rise &amp; Thrive selection panel.
+          </p>
+        </form>
+
+        <!-- Animated Success State -->
+        <div id="form-success" class="hidden text-center py-12 space-y-6">
+          <div class="w-16 h-16 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full flex items-center justify-center mx-auto">
+            <i data-lucide="check-circle" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white" data-i18n="form_success_title">Application Received</h3>
+          <p class="text-slate-300 text-sm max-w-md mx-auto leading-relaxed" data-i18n="form_success_desc">
+            Thank you for applying to Rise &amp; Thrive. Our selection committee will review your submission and contact you via email regarding the next steps.
+          </p>
+          <button id="reset-form-btn" class="btn-outline px-6 py-2.5 text-xs uppercase font-semibold" data-i18n="form_reset_btn">
+            Submit Another Request
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. FINAL CTA BANNER -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12 text-center relative z-10">
+      <div class="glass-card-featured p-12 rounded-3xl border border-amber-500/30 relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-amber-500/10 rounded-3xl pointer-events-none"></div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4" data-i18n="cta_banner_title">
+          Ready to Elevate Your Trajectory?
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8" data-i18n="cta_banner_subtitle">
+          Take the first step toward selective mentorship from real Nordic leaders.
+        </p>
+        <a href="#get-guidance" class="btn-gold px-9 py-4 text-xs uppercase tracking-wider font-bold inline-flex">
+          <span data-i18n="hero_cta_apply">Apply for Access</span> <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FOOTER -->
+  <footer class="bg-[#05070a] border-t border-slate-800/80 pt-16 pb-12 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-4 gap-10 pb-12 border-b border-slate-800/60">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-3 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="h-10 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center">
+              <img src="For_Rise&amp;ThriveLogo.jpeg" alt="Rise &amp; Thrive Logo" class="h-full object-contain rounded" />
+            </div>
+            <span class="font-heading font-bold text-lg text-white tracking-tight">RISE &amp; THRIVE</span>
+          </div>
+          <p class="text-sm text-slate-300 max-w-xl leading-relaxed" data-i18n="footer_tagline">
+            A selective mentorship community across the Nordics, bringing together established CEOs, entrepreneurs, and finance leaders to guide ambitious minds toward personal &amp; professional development.
+          </p>
+          <div class="flex items-center gap-4 pt-3">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1E7DqBHqhi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#1877F2]/20 hover:bg-[#1877F2]/35 text-white border border-[#1877F2]/40 font-semibold text-xs transition-all shadow-lg hover:scale-105 group" aria-label="Facebook Page">
+              <svg class="w-5 h-5 fill-[#1877F2] group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              <span>Facebook</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/company/absolute-legacy/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#0A66C2]/20 hover:bg-[#0A66C2]/35 text-white border border-[#0A66C2]/40 font-semibold text-xs transition-all shadow-lg hover:scale-105 group" aria-label="LinkedIn Page">
+              <svg class="w-5 h-5 fill-[#0A66C2] group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <!-- WhatsApp Channel -->
+            <a href="https://whatsapp.com/channel/0029VabKUEP2f3ERuA5kHa0p" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#25D366]/20 hover:bg-[#25D366]/35 text-white border border-[#25D366]/40 font-semibold text-xs transition-all shadow-lg hover:scale-105 group" aria-label="WhatsApp Channel">
+              <svg class="w-5 h-5 fill-[#25D366] group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.156 4.223 4.463-1.171z"/>
+              </svg>
+              <span>WhatsApp Channel</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4" data-i18n="footer_nav_title">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#why-us" class="hover:text-amber-400 transition-colors" data-i18n="nav_why_us">Why Rise &amp; Thrive</a></li>
+            <li><a href="#growth-areas" class="hover:text-amber-400 transition-colors" data-i18n="nav_growth_areas">Areas of Growth</a></li>
+            <li><a href="#what-you-get" class="hover:text-amber-400 transition-colors" data-i18n="nav_what_you_get">What You Get</a></li>
+            <li><a href="#community" class="hover:text-amber-400 transition-colors" data-i18n="nav_community">Community in Action</a></li>
+            <li><a href="#who-this-is-for" class="hover:text-amber-400 transition-colors" data-i18n="nav_who_this_is_for">Who This Is For</a></li>
+            <li><a href="#how-to-apply" class="hover:text-amber-400 transition-colors" data-i18n="nav_process">How to Apply</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div data-i18n="footer_rights">
+          &copy; 2026 Rise &amp; Thrive Community. All rights reserved. Nordics Mentorship Society.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-400 transition-colors" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-400 transition-colors" data-i18n="footer_terms">Terms of Access</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Multi-Language Translations & Script Config -->
+  <script src="translations.js"></script>
+  <script>
+    window.GOOGLE_SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwoQXiLMN1i0-qeXyvVIwRgXtbe4TZbRbIOg6psW88kk2TwdFhAymeXDDff79nxcdEX/exec";
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
